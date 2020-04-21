@@ -4,28 +4,28 @@
 
 #include "Stack.h"
 
-Stack::Stack()
+Stack::Stack()		//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃС‚РµРєР°
 {
 	size=0;
 	head=nullptr;
 }
-Stack::~Stack()
+Stack::~Stack()		//РґРµСЃС‚СЂСѓРєС‚РѕСЂ СЃС‚РµРєР°
 {
 	while(size)
 	{
 		char temp=pop_front();
-    }
+    	}
 }
-int Stack::getsize()
+int Stack::getsize()		//РїРѕР»СѓС‡РµРЅРёРµ СЂР°Р·РјРµСЂР° СЃС‚РµРєР°
 {
     return size;
 }
-void Stack::push_front(char data)   //вставить в стек
+void Stack::push_front(char data)   //РІСЃС‚Р°РІРёС‚СЊ РІ СЃС‚РµРє
 {
 	head = new Node(data, head);
 	size++;
 }
-char Stack::pop_front()     //извлечь из стека
+char Stack::pop_front()     //РёР·РІР»РµС‡СЊ РёР· СЃС‚РµРєР°
 {
 	Node* temp=head;
 	char ch=temp->data;
@@ -34,7 +34,7 @@ char Stack::pop_front()     //извлечь из стека
 	size--;
 	return ch;
 }
-char Stack::look()       //получить первый элемент стека
+char Stack::look()       //РїРѕР»СѓС‡РёС‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃС‚РµРєР°
 {
 	if (!head)
 	{
@@ -42,7 +42,7 @@ char Stack::look()       //получить первый элемент стека
 	}
 	return head->data;
 }
-int priority(char data)      //определить приоритет знака
+int priority(char data)      //РѕРїСЂРµРґРµР»РёС‚СЊ РїСЂРёРѕСЂРёС‚РµС‚ Р·РЅР°РєР°
 {
 	switch(data)
 	{
