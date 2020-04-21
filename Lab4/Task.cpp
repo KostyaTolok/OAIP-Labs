@@ -15,8 +15,8 @@ Stack stack;
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
 {
-	StringGrid1->Cells[0][0]="Переменная";
-	StringGrid1->Cells[1][0]="Значение";
+	StringGrid1->Cells[0][0]="ГЏГҐГ°ГҐГ¬ГҐГ­Г­Г Гї";
+	StringGrid1->Cells[1][0]="Г‡Г­Г Г·ГҐГ­ГЁГҐ";
 	char temp='a';
 	for (int i = 1; i < 6; i++)
 	{
@@ -30,42 +30,42 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	{
 	if (Edit1->Text=="")
 	{
-		throw Exception("Введите выражение!");
+		throw Exception("Г‚ГўГҐГ¤ГЁГІГҐ ГўГ»Г°Г Г¦ГҐГ­ГЁГҐ!");
 	}
 	Set<char,'(','/'> signs;
 	String OutputStr="";
 	AnsiString InputStr=Edit1->Text;
 	signs<<'+'<<'-'<<'*'<<'/';
 	bool bracket=false;
-	int count1=0,count2=0;                          //проверка на правильность
-	for (int i = 1; i <= InputStr.Length(); i++)    //введенного выражения
+	int count1=0,count2=0;                          //ГЇГ°Г®ГўГҐГ°ГЄГ  Г­Г  ГЇГ°Г ГўГЁГ«ГјГ­Г®Г±ГІГј
+	for (int i = 1; i <= InputStr.Length(); i++)    //ГўГўГҐГ¤ГҐГ­Г­Г®ГЈГ® ГўГ»Г°Г Г¦ГҐГ­ГЁГї
 	{
 		if (!signs.Contains(InputStr[i])&&InputStr[i]!='('
 		&&InputStr[i]!=')'&&!(InputStr[i]>='a'&&InputStr[i]<='e'))
 		{
-			throw Exception("Неверное выражение!");
+			throw Exception("ГЌГҐГўГҐГ°Г­Г®ГҐ ГўГ»Г°Г Г¦ГҐГ­ГЁГҐ!");
 		}
 		if (signs.Contains(InputStr[i])&&i!=InputStr.Length())
 		{
 			if (signs.Contains(InputStr[i+1]))
 			{
-				throw Exception("Нельзя повторять знаки!");
+				throw Exception("ГЌГҐГ«ГјГ§Гї ГЇГ®ГўГІГ®Г°ГїГІГј Г§Г­Г ГЄГЁ!");
 			}
 		}
 		else if ((InputStr[i]>='a'&&InputStr[i]<='e')&&i!=InputStr.Length())
 		{
 			if ((InputStr[i+1]>='a'&&InputStr[i+1]<='e'))
 			{
-				throw Exception("Нельзя повторять переменные!");
+				throw Exception("ГЌГҐГ«ГјГ§Гї ГЇГ®ГўГІГ®Г°ГїГІГј ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ!");
 			}
 		}
 		if (i==1&&(signs.Contains(InputStr[i])||InputStr[i]==')'))
 		{
-			throw Exception("Нельзя начинать с знака или закрывающей скобки!");
+			throw Exception("ГЌГҐГ«ГјГ§Гї Г­Г Г·ГЁГ­Г ГІГј Г± Г§Г­Г ГЄГ  ГЁГ«ГЁ Г§Г ГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г±ГЄГ®ГЎГЄГЁ!");
 		}
 		else if (i==InputStr.Length()&&(signs.Contains(InputStr[i])||InputStr[i]=='('))
 		{
-			throw Exception("Нельзя заканчивать знаком или открывающей скобкой!");
+			throw Exception("ГЌГҐГ«ГјГ§Гї Г§Г ГЄГ Г­Г·ГЁГўГ ГІГј Г§Г­Г ГЄГ®Г¬ ГЁГ«ГЁ Г®ГІГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г±ГЄГ®ГЎГЄГ®Г©!");
 		}
 		if (InputStr[i]=='(')
 		{
@@ -75,7 +75,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			{
 				if (!((InputStr[i+1]>='a'&&InputStr[i+1]<='e')||InputStr[i+1]=='('))
 				{
-					throw Exception("После открывающей скобки не может быть знаков и закрывающей скобки!");
+					throw Exception("ГЏГ®Г±Г«ГҐ Г®ГІГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г±ГЄГ®ГЎГЄГЁ Г­ГҐ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј Г§Г­Г ГЄГ®Гў ГЁ Г§Г ГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г±ГЄГ®ГЎГЄГЁ!");
 				}
 			}
 		}
@@ -87,7 +87,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			{
 			  if (!(signs.Contains(InputStr[i+1])))
 				{
-					throw Exception("После закрывающей скобки не может быть переменных!");;
+					throw Exception("ГЏГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г±ГЄГ®ГЎГЄГЁ Г­ГҐ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»Гµ!");;
                 }
 			}
 		}
@@ -95,11 +95,11 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		{
 			if (bracket)
 			{
-				throw Exception("Открывающая скобка не закрыта!");
+				throw Exception("ГЋГІГЄГ°Г»ГўГ ГѕГ№Г Гї Г±ГЄГ®ГЎГЄГ  Г­ГҐ Г§Г ГЄГ°Г»ГІГ !");
 			}
 			else if(count1!=count2)
 			{
-				throw Exception("Нет открывающей скобки!");
+				throw Exception("ГЌГҐГІ Г®ГІГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г±ГЄГ®ГЎГЄГЁ!");
             }
 		}
 		while(stack.getsize())
@@ -107,33 +107,28 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			char temp=stack.pop_front();
 		}
 	}
-	for (int i = 1; i <= InputStr.Length(); i++)   //заполнение стека и вых. строки
+	for (int i = 1; i <= InputStr.Length(); i++)   //Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г±ГІГҐГЄГ  ГЁ ГўГ»Гµ. Г±ГІГ°Г®ГЄГЁ
 	{
 		char ch=InputStr[i];
-		if (ch>='a'&&ch<='e')         //если переменная помещаем в вых. строку
+		if (ch>='a'&&ch<='e')         //ГҐГ±Г«ГЁ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї ГЇГ®Г¬ГҐГ№Г ГҐГ¬ Гў ГўГ»Гµ. Г±ГІГ°Г®ГЄГі
 		{
 			OutputStr+=InputStr[i];
-		}                               //если знак помещаем из стека в вых. строку
-		else if(signs.Contains(ch))     //пока его приоритет меньше приоритета
-		{                               //знаков из стека
-			if (priority(stack.look())<priority(ch))
+		}                               //ГҐГ±Г«ГЁ Г§Г­Г ГЄ ГЇГ®Г¬ГҐГ№Г ГҐГ¬ ГЁГ§ Г±ГІГҐГЄГ  Гў ГўГ»Гµ. Г±ГІГ°Г®ГЄГі
+		else if(signs.Contains(ch))     //ГЇГ®ГЄГ  ГҐГЈГ® ГЇГ°ГЁГ®Г°ГЁГІГҐГІ Г¬ГҐГ­ГјГёГҐ ГЇГ°ГЁГ®Г°ГЁГІГҐГІГ 
+		{                               //Г§Г­Г ГЄГ®Гў ГЁГ§ Г±ГІГҐГЄГ 
+
+			while(priority(stack.look())>=priority(ch))
 			{
-				stack.push_front(ch);
+				OutputStr+=stack.pop_front();
 			}
-			else
-			{
-				while(priority(stack.look())>=priority(ch))
-				{
-					OutputStr+=stack.pop_front();
-				}
-				stack.push_front(ch);
-			}
-        }
-		else if(ch=='(')      //если откр. скобка помещаем в стек
+			stack.push_front(ch);
+			
+        	}
+		else if(ch=='(')      //ГҐГ±Г«ГЁ Г®ГІГЄГ°. Г±ГЄГ®ГЎГЄГ  ГЇГ®Г¬ГҐГ№Г ГҐГ¬ Гў Г±ГІГҐГЄ
 		{
 			stack.push_front(InputStr[i]);
 		}
-		else if(ch==')')      //если закр. скобка извлекаем пока не откр.скобка
+		else if(ch==')')      //ГҐГ±Г«ГЁ Г§Г ГЄГ°. Г±ГЄГ®ГЎГЄГ  ГЁГ§ГўГ«ГҐГЄГ ГҐГ¬ ГЇГ®ГЄГ  Г­ГҐ Г®ГІГЄГ°.Г±ГЄГ®ГЎГЄГ 
 		{
 			while(stack.look()!='(')
 			{
@@ -142,7 +137,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			char del=stack.pop_front();
         }
 	}
-	while(stack.look()!=' ')     //извлечь оставшиеся символы
+	while(stack.look()!=' ')     //ГЁГ§ГўГ«ГҐГ·Гј Г®Г±ГІГ ГўГёГЁГҐГ±Гї Г±ГЁГ¬ГўГ®Г«Г»
 	{
 		OutputStr+=stack.pop_front();
 	}
@@ -160,13 +155,13 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 {
 	try
 	{
-	for (int i = 1; i < 6; i++)    //проверка значений таблицы
+	for (int i = 1; i < 6; i++)    //ГЇГ°Г®ГўГҐГ°ГЄГ  Г§Г­Г Г·ГҐГ­ГЁГ© ГІГ ГЎГ«ГЁГ¶Г»
 	{
 		for (int j=1; i < StringGrid1->Cells[1][i].Length(); i++)
 		{
 			if (!isdigit(StringGrid1->Cells[1][i][j]))
 			{
-				throw Exception("Неверное значение");
+				throw Exception("ГЌГҐГўГҐГ°Г­Г®ГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ");
 			}
 		}
 	}
@@ -175,7 +170,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	double result, temp1, temp2;
 	char ch, ch1, ch2;
 	int result_index=5;
-	for (int i = 1; i < 6; i++)         //заполнение массива массива значений
+	for (int i = 1; i < 6; i++)         //Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г¬Г Г±Г±ГЁГўГ  Г¬Г Г±Г±ГЁГўГ  Г§Г­Г Г·ГҐГ­ГЁГ©
 	{
 		ch=StringGrid1->Cells[0][i][1];
 		values[int(ch)-'a']=StrToFloat(StringGrid1->Cells[1][i]);
@@ -183,11 +178,11 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	for (int i = 1; i <= Str.Length(); i++)
 	{
 		ch=Str[i];
-		if (ch>='a'&&ch<='e')          //если переменная помещаем в стек
+		if (ch>='a'&&ch<='e')          //ГҐГ±Г«ГЁ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї ГЇГ®Г¬ГҐГ№Г ГҐГ¬ Гў Г±ГІГҐГЄ
 		{
 			stack.push_front(ch);
 		}
-		else  //если знак извлекаем два верхних числа из стека и проводим операцию
+		else  //ГҐГ±Г«ГЁ Г§Г­Г ГЄ ГЁГ§ГўГ«ГҐГЄГ ГҐГ¬ Г¤ГўГ  ГўГҐГ°ГµГ­ГЁГµ Г·ГЁГ±Г«Г  ГЁГ§ Г±ГІГҐГЄГ  ГЁ ГЇГ°Г®ГўГ®Г¤ГЁГ¬ Г®ГЇГҐГ°Г Г¶ГЁГѕ
 		{
 			ch1=stack.pop_front();
 			ch2=stack.pop_front();
@@ -207,7 +202,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 				case '/':
 					if (temp1==0)
 					{
-						throw Exception("Деление на ноль");
+						throw Exception("Г„ГҐГ«ГҐГ­ГЁГҐ Г­Г  Г­Г®Г«Гј");
 					}
 					result=temp2/temp1;
 					break;
