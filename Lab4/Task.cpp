@@ -18,7 +18,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	StringGrid1->Cells[0][0]="Переменная";
 	StringGrid1->Cells[1][0]="Значение";
 	char temp='a';
-	for (int i = 1; i < 6; i++)
+	for (int i = 1; i < 6; i++)		//запонение таблицы именами переменных
 	{
 		StringGrid1->Cells[0][i]=temp++;
 	}
@@ -166,7 +166,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 			}
 		}
 		AnsiString Str=Edit2->Text;
-		double values[100];
+		double values[100];		//массив значений переменных
 		double result, temp1, temp2;
 		char ch, ch1, ch2;
 		int result_index=5;
@@ -178,11 +178,11 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		for (int i = 1; i <= Str.Length(); i++)
 		{
 			ch=Str[i];
-			if (ch>='a'&&ch<='e')          //если переменная помещаем в стек
+			if (ch>='a'&&ch<='e')          //если переменная - помещаем в стек
 			{
 				stack.push_front(ch);
 			}
-			else  //если знак извлекаем два верхних числа из стека и проводим операцию
+			else  //если знак - извлекаем две верхних переменных из стека,переводим их в числа и проводим операцию
 			{
 				ch1=stack.pop_front();
 				ch2=stack.pop_front();
